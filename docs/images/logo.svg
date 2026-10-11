@@ -1,12 +1,28 @@
-<!--
-  autumn-recruit-db logo（纯 HTML/SVG 占位）
-  维护者可将真实 logo 替换本文件，并同步更新 README 中的图片引用。
--->
-<div align="center">
-  <svg width="160" height="160" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-    <rect width="160" height="160" rx="32" fill="#2F4858"/>
-    <text x="80" y="58" font-size="44" text-anchor="middle" fill="#F6AE2D">🍂</text>
-    <text x="80" y="100" font-size="22" text-anchor="middle" fill="#FFFFFF" font-family="monospace">autumn</text>
-    <text x="80" y="124" font-size="16" text-anchor="middle" fill="#9DC08B" font-family="monospace">recruit-db</text>
-  </svg>
-</div>
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240" role="img" aria-label="autumn-recruit-db logo — autumn leaf and data table">
+  <!-- 背景：深蓝绿圆角方底 -->
+  <rect width="240" height="240" rx="48" fill="#2F4858"/>
+
+  <!-- 秋叶（主视觉，琥珀色） -->
+  <g transform="translate(120,72)">
+    <path d="M0,-44 C20,-32 26,-8 16,8 C8,20 -8,20 -16,8 C-26,-8 -20,-32 0,-44 Z" fill="#C9971E"/>
+    <path d="M0,-40 C2,-24 2,-2 0,8" stroke="#F6D58A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M-12,-18 L-2,-10 M12,-18 L2,-10 M-9,-2 L-2,-4 M9,-2 L2,-4" stroke="#F6D58A" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <rect x="-3" y="6" width="6" height="14" rx="3" fill="#C9971E"/>
+  </g>
+
+  <!-- 表格（数据库主题，绿色表头 + 琥珀/绿色单元格） -->
+  <g transform="translate(0,142)">
+    <rect x="36" y="0" width="168" height="70" rx="10" fill="#F2EFE9"/>
+    <path d="M36,20 h168 v0 a10,10 0 0 0 -10,-10 h-148 a10,10 0 0 0 -10,10 z" fill="#5B7C4F"/>
+    <line x1="92" y1="0" x2="92" y2="70" stroke="#2F4858" stroke-width="1.5"/>
+    <line x1="148" y1="0" x2="148" y2="70" stroke="#2F4858" stroke-width="1.5"/>
+    <line x1="36" y1="20" x2="204" y2="20" stroke="#2F4858" stroke-width="1.5"/>
+    <line x1="36" y1="45" x2="204" y2="45" stroke="#2F4858" stroke-width="1.5"/>
+    <rect x="52" y="27" width="28" height="12" rx="4" fill="#C9971E" opacity="0.9"/>
+    <rect x="108" y="27" width="28" height="12" rx="4" fill="#C9971E" opacity="0.55"/>
+    <rect x="164" y="27" width="28" height="12" rx="4" fill="#C9971E" opacity="0.3"/>
+    <rect x="52" y="52" width="28" height="12" rx="4" fill="#5B7C4F" opacity="0.85"/>
+    <rect x="108" y="52" width="28" height="12" rx="4" fill="#5B7C4F" opacity="0.55"/>
+    <rect x="164" y="52" width="28" height="12" rx="4" fill="#5B7C4F" opacity="0.3"/>
+  </g>
+</svg>

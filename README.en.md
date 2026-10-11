@@ -105,6 +105,35 @@ Any contribution is welcome: bugs, features, docs, design. Please read [CONTRIBU
 
 > **Privacy red line**: no real resumes, application records or contact info in this repo. Samples must stay fictional.
 
+## Troubleshooting
+
+**Q1: `python -m venv .venv` fails on macOS with `Resource deadlock avoided` / EDEADLK?**
+
+> Cause: folders like `~/Documents` are under iCloud/Spotlight file-coordination monitoring, and bulk file operations by pip/venv can hit a macOS filesystem deadlock.
+> Fix: create the virtualenv outside the project (e.g. `~/.venvs/`) and use its absolute path:
+
+```bash
+python3.13 -m venv ~/.venvs/autumn-recruit-db
+source ~/.venvs/autumn-recruit-db/bin/activate
+pip install -r requirements.txt
+pytest -q
+```
+
+**Q2: Resume parsing returned empty / missing key fields?**
+
+- The rule-based parser relies on common section headings (教育背景/专业技能/项目经历/实习经历, Chinese or English). For unusual layouts, fill in name & skills manually on page ①.
+- Enable LLM extraction for higher accuracy: set `LLM_API_KEY` (any OpenAI-compatible endpoint), then toggle "Enable LLM extraction" on the upload page. Falls back to rule-based automatically when unconfigured.
+- Supported formats: PDF / DOCX / Markdown / plain text only.
+
+**Q3: How to store the database elsewhere (not the default `data/autumn_recruit.db`)?**
+
+> Use the `DB_PATH` environment variable:
+
+```bash
+DB_PATH=/path/to/my-recruit.db streamlit run src/ui/app.py
+# CLI: DB_PATH=/path/to/my-recruit.db python src/cli.py demo
+```
+
 ## License
 
 [MIT](LICENSE) © autumn-recruit-db contributors

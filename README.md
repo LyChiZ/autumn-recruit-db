@@ -101,6 +101,8 @@ streamlit run src/ui/app.py
 - [x] **可选 LLM 抽取**：OpenAI 兼容接口（Ollama / vLLM / 云厂商均可），未配置自动回退规则解析
 - [ ] **云同步 / 多人协作**：Roadmap v1.0
 
+> 📖 详细使用教程见 [docs/usage.md](docs/usage.md)
+
 ---
 
 ## 技术选型（Tech Stack）
@@ -166,6 +168,35 @@ autumn-recruit-db/
 
 - 提交前请阅读 [CONTRIBUTING.md](CONTRIBUTING.md) 与 [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 - 隐私红线：**仓库内禁止出现真实个人简历 / 投递记录 / 联系方式**，示例一律虚构
+
+## 常见问题（FAQ / Troubleshooting）
+
+**Q1：macOS 上 `python -m venv .venv` 报错 `Resource deadlock avoided` / EDEADLK？**
+
+> 原因：`~/Documents` 等目录处于 iCloud / Spotlight 文件协调监控下，pip 与 venv 的批量文件操作可能触发 macOS 文件系统死锁。
+> 解决：把虚拟环境建在项目外（如 `~/.venvs/`），再通过绝对路径使用：
+
+```bash
+python3.13 -m venv ~/.venvs/autumn-recruit-db
+source ~/.venvs/autumn-recruit-db/bin/activate
+pip install -r requirements.txt
+pytest -q
+```
+
+**Q2：简历解析结果为空 / 关键字段没抽出来？**
+
+- 规则解析依赖常见小节标题（教育背景/专业技能/项目经历/实习经历，中英文均可）；若简历排版特殊，请手动在「① 简历上传与解析」页补全姓名与技能。
+- 启用 LLM 抽取可显著提升精度：配置 `LLM_API_KEY`（OpenAI 兼容接口均可）后，在页面上勾选「启用 LLM 结构化抽取」，未配置时自动回退规则解析。
+- 支持格式仅限 PDF / DOCX / Markdown / 纯文本，其他格式请先转换。
+
+**Q3：如何把数据库放到别的位置（而非默认的 `data/autumn_recruit.db`）？**
+
+> 通过环境变量 `DB_PATH` 指定：
+
+```bash
+DB_PATH=/path/to/my-recruit.db streamlit run src/ui/app.py
+# 或命令行：DB_PATH=/path/to/my-recruit.db python src/cli.py demo
+```
 
 ## License
 
