@@ -1,0 +1,20 @@
+# autumn-recruit-db 依赖清单（Python >= 3.9）
+# 安装：pip install -r requirements.txt
+
+# ---- Web UI ----
+streamlit>=1.36,<2.0
+
+# ---- 简历解析 ----
+pdfplumber>=0.11.0        # PDF 文本抽取（含表格）
+python-docx>=1.1.0        # Word .docx 解析
+# Markdown 解析使用标准库，无需额外依赖
+
+# ---- 数据存储 / 导出 ----
+pandas>=2.0.0             # 表格处理与 Excel 导出
+openpyxl>=3.1.0           # xlsx 读写引擎
+
+# ---- 可选：LLM 结构化抽取（OpenAI 兼容接口，未配置时自动回退规则解析）----
+requests>=2.31.0
+
+# ---- 测试 ----
+pytest>=8.0.0

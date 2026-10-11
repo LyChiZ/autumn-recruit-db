@@ -1,0 +1,63 @@
+{
+  "说明": "autumn-recruit-db 字段字典：每个字段的中文含义、类型与示例，供二次开发与数据源对接参考。该模型通用化自个人秋招数据库实践，不含任何真实数据。",
+  "candidate": [
+    {"field": "name", "label": "姓名", "type": "text", "example": "张三"},
+    {"field": "headline", "label": "一句话定位", "type": "text", "example": "XX大学计算机硕士，数据与商业分析方向"},
+    {"field": "contact_email", "label": "邮箱", "type": "text", "example": "zhangsan@example.com"},
+    {"field": "contact_phone", "label": "电话", "type": "text", "example": "138-0000-0000"},
+    {"field": "education", "label": "教育经历", "type": "json数组", "example": "[{school, degree, major, period}]"},
+    {"field": "skills", "label": "技能关键词", "type": "json数组", "example": "[\"Python\", \"SQL\"]"},
+    {"field": "projects", "label": "项目经历", "type": "json数组", "example": "[\"校园二手平台数据分析\"]"},
+    {"field": "internships", "label": "实习经历", "type": "json数组", "example": "[\"某互联网公司 数据分析实习生\"]"}
+  ],
+  "jobs": [
+    {"field": "company", "label": "公司", "type": "text", "example": "启明云科技（示例）"},
+    {"field": "title", "label": "岗位名称", "type": "text", "example": "商业分析师（2027 届校招）"},
+    {"field": "department", "label": "部门", "type": "text", "example": "商业分析部"},
+    {"field": "job_family", "label": "方向分类", "type": "text", "example": "数据/产品/运营/战略"},
+    {"field": "tier", "label": "公司梯队", "type": "text", "example": "Tier 1/2/3"},
+    {"field": "country", "label": "国家", "type": "text", "example": "中国"},
+    {"field": "city", "label": "城市", "type": "text", "example": "上海"},
+    {"field": "remote", "label": "办公模式", "type": "text", "example": "Onsite/混合办公/远程"},
+    {"field": "education_req", "label": "学历要求", "type": "text", "example": "硕士及以上"},
+    {"field": "experience_req", "label": "经验要求", "type": "text", "example": "2027 届应届，有实习优先"},
+    {"field": "jd_summary", "label": "JD 摘要", "type": "text", "example": "负责经营指标体系搭建…"},
+    {"field": "keywords", "label": "匹配关键词", "type": "json数组", "example": "[\"Python\", \"SQL\"]"},
+    {"field": "compensation", "label": "薪酬（口径+来源）", "type": "text", "example": "约 30-45 万/年（示例估算）"},
+    {"field": "wlb", "label": "工作生活平衡备注", "type": "text", "example": "3.0 星，约 10:00-20:00"},
+    {"field": "source_url", "label": "投递/来源链接", "type": "text", "example": "https://example.com/campus/ba"},
+    {"field": "application_status", "label": "招聘状态", "type": "text", "example": "在招/截止/待公布"},
+    {"field": "posting_date", "label": "发布日期", "type": "date", "example": "2026-09-10"},
+    {"field": "deadline", "label": "截止日期", "type": "date|text", "example": "2026-11-30 或 招满即止"},
+    {"field": "match_score", "label": "匹配度 0-100", "type": "number", "example": "85.5"},
+    {"field": "overall_score", "label": "综合评分 0-100", "type": "number", "example": "88.0"},
+    {"field": "sub_scores", "label": "分项得分", "type": "json", "example": "{\"skills\":80,\"education\":100,\"location\":100,\"experience\":80}"},
+    {"field": "fit_analysis", "label": "匹配分析一句话", "type": "text", "example": "技能高度对口；学历满足要求"}
+  ],
+  "applications": [
+    {"field": "applied_at", "label": "投递日期", "type": "date", "example": "2026-10-08"},
+    {"field": "channel", "label": "投递渠道", "type": "text", "example": "官网/内推/邮箱/招聘平台"},
+    {"field": "referrer", "label": "内推人", "type": "text", "example": "（脱敏示例）"},
+    {"field": "status", "label": "看板状态", "type": "enum", "example": "待投/已投/笔试/面试/Offer/感谢信"},
+    {"field": "next_action", "label": "下一动作", "type": "text", "example": "等待笔试通知"},
+    {"field": "notes", "label": "备注", "type": "text", "example": "官网投递后 3 天无回音"}
+  ],
+  "interviews": [
+    {"field": "interview_date", "label": "面试日期", "type": "date", "example": "2026-11-05"},
+    {"field": "round", "label": "轮次", "type": "enum", "example": "一面/二面/终面/HR面"},
+    {"field": "format", "label": "形式", "type": "enum", "example": "线上面试/线下面试"},
+    {"field": "result", "label": "结果", "type": "enum", "example": "通过/挂/待定"},
+    {"field": "review", "label": "复盘要点", "type": "text", "example": "SQL 现场题答得一般，需补窗口函数"},
+    {"field": "questions", "label": "面试问题归档", "type": "json数组", "example": "[\"如何设计 A/B 实验？\"]"}
+  ],
+  "offers": [
+    {"field": "base_salary", "label": "月薪 base", "type": "text", "example": "25K"},
+    {"field": "total_package", "label": "年薪总包", "type": "text", "example": "40 万/年（口径+来源）"},
+    {"field": "bonus", "label": "奖金/签字费", "type": "text", "example": "签字费 5 万"},
+    {"field": "benefits", "label": "福利", "type": "text", "example": "房补 2K/月，15 天年假"},
+    {"field": "decision_deadline", "label": "确认期限", "type": "date", "example": "2026-12-10"},
+    {"field": "pros", "label": "优点", "type": "text", "example": "平台大、业务核心"},
+    {"field": "cons", "label": "缺点", "type": "text", "example": "加班多、通勤远"},
+    {"field": "decision", "label": "决策", "type": "enum", "example": "接受/拒绝/待定"}
+  ]
+}

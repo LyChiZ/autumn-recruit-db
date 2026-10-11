@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "autumn-recruit-db"
+version = "0.1.0"
+description = "秋招求职数据库：上传简历 → 自动生成岗位匹配 / 投递追踪 / 面试复盘 / Offer 对比的全流程开源工具"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "autumn-recruit-db contributors" }]
+keywords = ["job-hunting", "resume-parser", "campus-recruitment", "streamlit", "career"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Office/Business",
+]
+
+[project.urls]
+Homepage = "https://github.com/<your-username>/autumn-recruit-db"
+Repository = "https://github.com/<your-username>/autumn-recruit-db"
+Issues = "https://github.com/<your-username>/autumn-recruit-db/issues"
+
+# 依赖统一从 requirements.txt 读取（保持单一来源）
+dynamic = ["dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
+
+# src 布局：包根目录为 src/，顶层模块 parser / matcher / database / ui / utils
+[tool.setuptools]
+package-dir = { "" = "src" }
+packages = ["parser", "matcher", "database", "ui", "utils"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

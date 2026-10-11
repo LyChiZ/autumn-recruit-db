@@ -1,0 +1,48 @@
+# ============================================================
+# autumn-recruit-db .gitignore
+# 个人数据隔离策略：本仓库只包含通用代码与脱敏示例数据，
+# 任何真实简历、真实投递记录、联系方式一律不得进入版本控制。
+# ============================================================
+
+# ---- 个人数据隔离（防御性规则，同时防止误提交）----
+../秋招投递列表/          # 用户个人秋招数据库目录（同级目录，禁止纳入）
+../data/                  # 相邻 data 目录引用（gitignore 不跨目录，仅作声明）
+*.personal.*              # 任何标记为 personal 的文件
+private/                  # 私有目录
+secrets.toml              # 密钥配置
+*.env                     # 环境变量（可能含 API Key）
+
+# ---- 运行时生成的数据（用户上传/解析产物，不入库）----
+data/*.db
+data/*.db-journal
+data/*.sqlite3
+data/uploads/
+data/exports/
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+
+# ---- Streamlit / IDE / 系统 ----
+.streamlit/secrets.toml
+.DS_Store
+~$*
+*.tmp
+.idea/
+.vscode/
+.obsidian/
+
+# ---- 文档占位截图（仓库维护者自行补充后移除）----
+docs/images/demo.png
